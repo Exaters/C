@@ -11,11 +11,11 @@ int main(void)
   b= a%2;
   if (b != 0)
   {
-   printf("\n odd number");
+   printf("\n odd number\r");
   
   }else
   {
-    printf("\n even number");
+    printf("\n even number\r");
   }
   }
   return 0;
