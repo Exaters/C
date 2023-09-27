@@ -1,8 +1,10 @@
 #include<stdio.h>
+
 int main()
 {
     int numbers[7];
     srand(time(NULL));
+    
     for(int i=0;i<8;i++) {
         numbers[i]= rand() %6;
     }
@@ -18,7 +20,7 @@ int main()
     
     for(int i=0;i<8;i++) {
       if (numbers[i] > max) {
-       max=numbers[i];
+        max=numbers[i];
       }
     }
     
@@ -26,7 +28,7 @@ int main()
     
     for(int i=0;i<8;i++) {
       if (numbers[i] <=  min) {
-        min=numbers[i];
+         min=numbers[i];
       }
     }
     
