@@ -20,10 +20,8 @@ int main() {
     funcpointer = oddsringevennumber;
     funcpointer();
 
-
     int* (*vidlenie)(int);
     vidlenie = videlenie;
-
 
     int size = 10;
     videlenie(size);
@@ -40,7 +38,9 @@ int main() {
     free(arr);
     return 0;
 }
+
 ///////////////////////////////////////////////////////////////////////////
+
 int* videlenie(int size) {
     int* arr = (int *) malloc(size * sizeof(int));
     return arr;
