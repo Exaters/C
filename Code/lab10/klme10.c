@@ -9,27 +9,27 @@
 //(можно списки/стеки и любые другие типы коллекций на свое усмотрение).
 //12. Вывести студентов мужского пола из определённой группы;
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-
-typedef  struct Node
-{
-    int data;
-    struct Node* next;
+// представление студента
+typedef struct Student {
+    char last_name[50];
+    char first_name[50];
+    char gender;
+    int age;
+    char group[50];
+    int math_mark;
+    int physics_mark;
+    int chemistry_mark;
 };
 
-typedef struct Student
-{
-    char * surename;
-    char * name;
-    char * gender;
-    int age;
-    char * groupe;
-    int math_mark;
-    int physic_mark;
-    int chemistry_mark;
-} Student;
+// нода стэка
+typedef struct Node {
+    struct Student;
+    struct Node* next;
+};
 
 int main()
 {
