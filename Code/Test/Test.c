@@ -2,98 +2,109 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Структура для представления студента
-struct Student {
-    char lastName[50];
-    char firstName[50];
+// student
+typedef struct 
+{
+    char lastname[50];
+    char firstname[50];
     char gender;
     int age;
     char group[50];
-    int mathGrade;
-    int physicsGrade;
-    int chemistryGrade;
-};
+    int math_mark;
+    int physics_mark;
+    int chemistry_mark;
+}Student;
 
-// Структура для представления узла стека
-struct Node {
-    struct Student data;
+// node
+typedef struct Node
+{
+    Student data;
     struct Node* next;
-};
+}Node;
 
-// Функция для создания нового узла
-struct Node* newNode(struct Student student) {
-    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
-    if (!node) {
-        printf("Memory allocation error\n");
-        exit(1);
-    }
+// new node
+struct Node* new_node(Student student)
+{
+    struct Node* node = (Node*)malloc(sizeof(Node));
     node->data = student;
     node->next = NULL;
     return node;
 }
 
-// Функция для проверки, пуст ли стек
-int isEmpty(struct Node* root) {
-    return !root;
+// is empty stack
+int is_empty(Node* pointer) {
+    return !pointer;
 }
 
-// Функция для добавления элемента в стек
-void push(struct Node** root, struct Student student) {
-    struct Node* node = newNode(student);
-    node->next = *root;
-    *root = node;
-    printf("Student %s %s pushed to stack\n", student.lastName, student.firstName);
+// stack push
+void push(Node** pointer, Student student)
+{
+    Node* node = new_node(student);
+    node->next = *pointer;
+    *pointer = node;
+    printf("student %s %s push to stack success\n", student.lastname, student.firstname);
 }
 
-// Функция для удаления элемента из стека
-struct Student pop(struct Node** root) {
-    if (isEmpty(*root)) {
-        printf("Stack underflow\n");
+// stack pop
+Student pop(Node** pointer)
+{
+    if (is_empty(*pointer)) {
+        printf("stack is empty\n");
         exit(1);
     }
-    struct Node* temp = *root;
-    *root = (*root)->next;
-    struct Student popped = temp->data;
-    free(temp);
+    Node* tmp = *pointer;
+    *pointer = (*pointer)->next;
+    Student popped = tmp->data;
+    free(tmp);
     return popped;
 }
 
-// Функция для получения верхнего элемента стека без его удаления
-struct Student peek(struct Node* root) {
-    if (isEmpty(root)) {
-        printf("Stack is empty\n");
+// get root of stack
+Student get_root(Node* pointer)
+{
+    if (is_empty(pointer)) {
+        printf("no data\n");
         exit(1);
     }
-    return root->data;
+    return pointer->data;
 }
 
-// Функция для вывода студентов мужского пола из определенной группы
-void printMaleStudentsInGroup(struct Node* root, const char* targetGroup) {
-    printf("Список студентов мужского пола из группы %s:\n", targetGroup);
-    while (root != NULL) {
-        if (strcmp(root->data.group, targetGroup) == 0 && root->data.gender == 'M') {
-            printf("Фамилия: %s, Имя: %s, Возраст: %d\n", root->data.lastName, root->data.firstName, root->data.age);
+// print male student in same groupe
+void print_male_student_in_groupe(Node* pointer, const char* groupe)
+{
+    printf("Список студентов мужского пола из группы %s:\n", groupe);
+    while (pointer != NULL) {
+        if (strcmp(pointer->data.group, groupe) == 0 && pointer->data.gender == 'M') {
+            printf("Фамилия: %s, Имя: %s, Возраст: %d, Группа: %s \n", pointer->data.lastname, pointer->data.firstname, pointer->data.age, pointer->data.group);
         }
-        root = root->next;
+        pointer = pointer->next;
     }
 }
+
+//void randomise_push_students()
+//{
+//    int i = 0;
+//    char stud[10];
+//    Student stud
+//
+//}
 
 // Пример использования стека
 int main() {
-    system("cpch 65001");
-    struct Node* root = NULL;
+    system("chcp 65001");
+    Node* pointer = NULL;
 
-    struct Student student1 = {"Иванов", "Иван", 'M', 20, "ИСП207", 4.5, 4.0, 4.8};
-    struct Student student2 = {"Петров", "Петр", 'M', 21, "ИСП206", 3.8, 4.2, 3.9};
-    struct Student student3 = {"Сидорова", "Елена", 'F', 19, "ИСП207", 4.2, 3.7, 4.5};
-    struct Student student4 = {"Смирнов", "Алексей", 'M', 22, "ИСП206", 4.0, 3.5, 4.1};
+    Student student1 = {"Иванов", "Иван", 'М', 20, "ИСП207", 4, 4, 5};
+    Student student2 = {"Петров", "Петр", 'Ж', 21, "ИСП206", 3, 4, 4};
+    Student student3 = {"Сидорова", "Елена", 'М', 19, "ИСП207", 5, 3, 4};
+    Student student4 = {"Смирнов", "Алексей", 'Ж', 22, "ИСП206", 4, 5, 4};
 
-    push(&root, student1);
-    push(&root, student2);
-    push(&root, student3);
-    push(&root, student4);
+    push(&pointer, student1);
+    push(&pointer, student2);
+    push(&pointer, student3);
+    push(&pointer, student4);
 
-    printMaleStudentsInGroup(root, "ИСП206");
+    print_male_student_in_groupe(pointer, "ИСП206");
 
     return 0;
 }
