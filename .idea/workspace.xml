@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea8d2943-eb51-4a88-9ea7-3e72a6d2bde4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Code/lab9/klme9.c" beforeDir="false" afterPath="$PROJECT_DIR$/Code/lab9/klme9.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/lab9/klme9.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Code/lab9/klme9.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/test10/test10.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/short/OneDrive/Документы/GitHub/C/Code/lab10",
+    "last_opened_file_path": "C:/Users/short/OneDrive/Документы/GitHub/C",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,15 +56,22 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="C/C++ File.test10.c">
     <configuration name="klme9.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="C" TARGET_NAME="klme9.c" CONFIG_NAME="klme9.c">
       <option name="sourceFile" value="klme9.c" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test10.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="C" TARGET_NAME="test10.c" CONFIG_NAME="test10.c">
+      <option name="sourceFile" value="Code\test10\test10.c" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="C/C++ File.test10.c" />
         <item itemvalue="C/C++ File.klme9.c" />
       </list>
     </recent_temporary>
@@ -80,6 +87,7 @@
       <workItem from="1709309947749" duration="51000" />
       <workItem from="1709310052278" duration="2006000" />
       <workItem from="1710309541948" duration="17000" />
+      <workItem from="1715803863359" duration="50000" />
     </task>
     <servers />
   </component>
