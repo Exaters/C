@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include <time.h>
 
-
 const char last_names[10][20] = {
         "Natasha",
         "Masha",
@@ -36,9 +35,8 @@ const char genders[2][10] = {
         "Female"
 };
 
-
 struct Student {
-    char* last_name;
+    char last_name[20];
     char first_name[30];
     char gender[10];
     int group;
@@ -46,13 +44,12 @@ struct Student {
     int math_mark;
     int physics_mark;
     int chemistry_mark;
-} Student;
+};
 
 struct StudentNode {
     struct Student* data;
     struct StudentNode* next;
 };
-
 
 struct List {
     struct StudentNode* head;
@@ -65,7 +62,7 @@ struct List {
 
 struct List* list_init();
 struct Student* student_init(
-        const char last_name[30],
+        const char last_name[20],
         const char first_name[30],
         const char *gender,
         int group,
@@ -78,7 +75,6 @@ void list_append(struct List* list, struct Student* student);
 void print_students(const struct List* list);
 void print_male_students_in_group(const struct List* list, int group);
 void free_list(struct List* list);
-
 
 int main()
 {
@@ -93,13 +89,12 @@ int main()
                         last_names[rand() % 10],
                         first_names[rand() % 10],
                         genders[rand() % 2],
-                        4,
+                        rand() % 5 + 1, // Генерация случайной группы от 1 до 5
                         rand() % 7 + 15,
                         rand() % 4 + 2,
                         rand() % 4 + 2,
                         rand() % 4 + 2
                 )
-
         );
     }
 
@@ -114,7 +109,6 @@ int main()
     return 0;
 }
 
-
 struct List* list_init()
 {
     struct List* result = malloc(sizeof(struct List));
@@ -127,10 +121,9 @@ struct List* list_init()
     return result;
 }
 
-
 struct Student* student_init(
         const char last_name[20],
-        const char first_name[20],
+        const char first_name[30],
         const char *gender,
         int group,
         int age,
@@ -150,7 +143,6 @@ struct Student* student_init(
     student->chemistry_mark = chemistry_mark;
     return student;
 }
-
 
 void list_append(struct List* list, struct Student* student)
 {
@@ -207,13 +199,11 @@ void print_male_students_in_group(const struct List* list, int group)
         current = current->next;
     }
 
-
     if (!male_student_in_group)
     {
         printf("No male students found in group %d\n", group);
     }
 }
-
 
 void free_list(struct List* list)
 {

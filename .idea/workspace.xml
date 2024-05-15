@@ -10,8 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea8d2943-eb51-4a88-9ea7-3e72a6d2bde4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/test10/test10.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/test10/test10.c" beforeDir="false" afterPath="$PROJECT_DIR$/Code/test10/test10.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test10.exe" beforeDir="false" afterPath="$PROJECT_DIR$/test10.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +41,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "C/C++ File.klme9.c.executor": "Run",
+    "C/C++ File.test10.c.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
@@ -87,7 +89,7 @@
       <workItem from="1709309947749" duration="51000" />
       <workItem from="1709310052278" duration="2006000" />
       <workItem from="1710309541948" duration="17000" />
-      <workItem from="1715803863359" duration="50000" />
+      <workItem from="1715803863359" duration="762000" />
     </task>
     <servers />
   </component>
