@@ -4,38 +4,28 @@
 
 #define lol_0 return 0; // macro
 
-void load_students_from_file(const char* filename, struct List* list) {
-    FILE* file = fopen(filename, "r");
+void load_students_from_binary_file(const char* filename, struct List* list) {
+    FILE* file = fopen(filename, "rb");
     if (file == NULL) {
         printf("Error opening file for reading\n");
         return;
     }
 
-    char last_name[20];
-    char first_name[30];
-    char gender[10];
-    int group;
-    int age;
-    int math_mark;
-    int physics_mark;
-    int chemistry_mark;
-
-    while (fscanf(file, "%s %s %s %d %d %d %d %d",
-                  last_name, first_name, gender, &group, &age,
-                  &math_mark, &physics_mark, &chemistry_mark) != EOF) {
-        struct Student* student = student_init(last_name, first_name, gender,
-                                               group, age, math_mark,
-                                               physics_mark, chemistry_mark);
-        if (student != NULL) {
-            list->append(list, student);
+    struct Student student;
+    while (fread(&student, sizeof(struct Student), 1, file) == 1) {
+        struct Student* new_student = student_init(student.last_name, student.first_name, student.gender,
+                                                   student.group, student.age, student.math_mark,
+                                                   student.physics_mark, student.chemistry_mark);
+        if (new_student != NULL) {
+            list->append(list, new_student);
         }
     }
 
     fclose(file);
 }
 
-void save_students_to_file(const char* filename, const struct List* list) {
-    FILE* file = fopen(filename, "w");
+void save_students_to_binary_file(const char* filename, const struct List* list) {
+    FILE* file = fopen(filename, "wb");
     if (file == NULL) {
         printf("Error opening file for writing\n");
         return;
@@ -43,11 +33,7 @@ void save_students_to_file(const char* filename, const struct List* list) {
 
     struct StudentNode* current = list->head;
     while (current != NULL) {
-        fprintf(file, "%s %s %s %d %d %d %d %d\n",
-                current->data->last_name, current->data->first_name,
-                current->data->gender, current->data->group,
-                current->data->age, current->data->math_mark,
-                current->data->physics_mark, current->data->chemistry_mark);
+        fwrite(current->data, sizeof(struct Student), 1, file);
         current = current->next;
     }
 
@@ -78,7 +64,7 @@ int main() {
     printf("Do you want to read students from file? (y or n): ");
     scanf(" %c", &read_from_file);
     if (read_from_file == 'y' || read_from_file == 'Y') {
-        load_students_from_file("students.txt", my_new_list);
+        load_students_from_binary_file("students.bin", my_new_list);
     }
 
     printf("All students:\n");
@@ -88,7 +74,7 @@ int main() {
     printf("Do you want to save students to file? (y or n): ");
     scanf(" %c", &save_to_file);
     if (save_to_file == 'y' || save_to_file == 'Y') {
-        save_students_to_file("students.txt", my_new_list);
+        save_students_to_binary_file("students.bin", my_new_list);
     }
 
     int group_to_check = 4;
