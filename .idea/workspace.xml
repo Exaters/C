@@ -10,9 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea8d2943-eb51-4a88-9ea7-3e72a6d2bde4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/lab11/klme11.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Test/Test.c" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Test/Test.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/lab12/klme12.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +50,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/short/OneDrive/Документы/GitHub/C",
+    "last_opened_file_path": "C:/Users/short/OneDrive/Документы/GitHub/C/Code/lab12",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,7 +113,7 @@
       <workItem from="1710309541948" duration="17000" />
       <workItem from="1715803863359" duration="762000" />
       <workItem from="1715808647032" duration="1493000" />
-      <workItem from="1715824870838" duration="151000" />
+      <workItem from="1715824870838" duration="300000" />
     </task>
     <servers />
   </component>
