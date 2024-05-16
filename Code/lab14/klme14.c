@@ -74,9 +74,22 @@ int main() {
         );
     }
 
+    char read_from_file;
+    printf("Do you want to read students from file? (y or n): ");
+    scanf(" %c", &read_from_file);
+    if (read_from_file == 'y' || read_from_file == 'Y') {
+        load_students_from_file("students.txt", my_new_list);
+    }
 
     printf("All students:\n");
     my_new_list->print(my_new_list);
+
+    char save_to_file;
+    printf("Do you want to save students to file? (y or n): ");
+    scanf(" %c", &save_to_file);
+    if (save_to_file == 'y' || save_to_file == 'Y') {
+        save_students_to_file("students.txt", my_new_list);
+    }
 
     int group_to_check = 4;
     printf("Male students from group %d:\n", group_to_check);
