@@ -17,6 +17,10 @@ const char genders[2][10] = {
 
 struct List* list_init() {
     struct List* result = malloc(sizeof(struct List));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     result->head = NULL;
     result->tail = NULL;
     result->append = list_append;
@@ -28,8 +32,13 @@ struct List* list_init() {
 
 void list_append(struct List* list, struct Student* student) {
     struct StudentNode* node = malloc(sizeof(struct StudentNode));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     node->data = student;
     node->next = NULL;
+
     if (list->tail == NULL) {
         list->head = node;
         list->tail = node;

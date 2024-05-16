@@ -1,4 +1,5 @@
 #include "Student.h"
+#include <string.h>
 
 
 struct Student* student_init(
@@ -12,6 +13,10 @@ struct Student* student_init(
         int chemistry_mark
 ) {
     struct Student* student = malloc(sizeof(struct Student));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     strcpy(student->last_name, last_name);
     strcpy(student->first_name, first_name);
     strcpy(student->gender, gender);

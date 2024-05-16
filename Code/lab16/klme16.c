@@ -8,7 +8,7 @@ void load_students_from_binary_file(const char* filename, struct List* list) {
     FILE* file = fopen(filename, "rb");
     if (file == NULL) {
         printf("Error opening file for reading\n");
-        return;
+        exit(errno);
     }
 
     struct Student student;
@@ -28,7 +28,7 @@ void save_students_to_binary_file(const char* filename, const struct List* list)
     FILE* file = fopen(filename, "wb");
     if (file == NULL) {
         printf("Error opening file for writing\n");
-        return;
+        exit(errno);
     }
 
     struct StudentNode* current = list->head;
