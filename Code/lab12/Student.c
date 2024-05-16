@@ -1,6 +1,3 @@
-//
-// Created by short on 16.05.2024.
-//
 #include "Student.h"
 
 struct Student* student_init(

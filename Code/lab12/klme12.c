@@ -1,5 +1,6 @@
-#include "three.h"
-#include "Student.h"
+#include "three.c"
+#include "Student.c"
+
 
 int main() {
     struct List* my_new_list = list_init();
@@ -9,17 +10,18 @@ int main() {
         my_new_list->append(
                 my_new_list,
                 student_init(
-                        last_names[rand() % 10],
-                        first_names[rand() % 10],
-                        genders[rand() % 2],
-                        rand() % 5 + 1,
-                        rand() % 7 + 15,
-                        rand() % 4 + 2,
-                        rand() % 4 + 2,
-                        rand() % 4 + 2
+                        last_names[RAND_RANGE(0, 9)],
+                        first_names[RAND_RANGE(0, 9)],
+                        genders[RAND_RANGE(0, 1)],
+                        RAND_RANGE(1, 5),
+                        RAND_RANGE(15, 21),
+                        RAND_RANGE(2, 5),
+                        RAND_RANGE(2, 5),
+                        RAND_RANGE(2, 5)
                 )
         );
     }
+
 
     printf("All students:\n");
     my_new_list->print(my_new_list);
@@ -30,9 +32,7 @@ int main() {
 
     my_new_list->free_list(my_new_list);
 
-    printf("%s\n", UNIQUE_MACRO);
-    int number = 5;
-    printf("Square of %d is %d\n", number, SQUARE(number));
+    printf(MARCO); // why not ?
 
     return 0;
 }
