@@ -5,9 +5,9 @@
 #include <time.h>
 
 
-extern const char last_names[10][20];
-extern const char first_names[10][20];
-extern const char genders[2][10];
+const char last_names[10][20];
+const char first_names[10][20];
+const char genders[2][10];
 
 #define MARCO "This is a MARCO" // why not?
 #define RAND_RANGE(min, max) ((min) + rand() % ((max) - (min) + 1))

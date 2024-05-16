@@ -80,7 +80,7 @@ void print_male_students_in_group_node(const struct StudentNode* node, int group
 void* free_tree(void* tree);
 void free_tree_node(struct StudentNode* node);
 
-struct GroupParam {
+struct GroupPar {
     const struct StudentTree* tree;
     int group;
 };
@@ -107,7 +107,7 @@ int main() {
     my_tree->print(my_tree);
 
     int group_to_check = 4;
-    struct GroupParam group_param = {my_tree, group_to_check};
+    struct GroupPar group_param = {my_tree, group_to_check};
     printf("Male students from group %d:\n", group_to_check);
     my_tree->print_male_students_in_group(my_tree, &group_param);
 
@@ -189,7 +189,7 @@ void print_students_node(const struct StudentNode* node) {
 
 void* print_male_students_in_group(const void* tree, void* param) {
     const struct StudentTree* t = (const struct StudentTree*) tree;
-    struct GroupParam* group_param = (struct GroupParam*) param;
+    struct GroupPar* group_param = (struct GroupPar*) param;
     bool male_student_in_group = false;
     print_male_students_in_group_node(t->root, group_param->group, &male_student_in_group);
 
