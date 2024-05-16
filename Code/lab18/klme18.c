@@ -1,36 +1,13 @@
 #include <stdio.h>
 #include <wchar.h>
-#include <wctype.h>
 #include <locale.h>
+#include "klme.h"
 
-int countofwords(wchar_t* text) {
-    int count = 0;
-    wchar_t* word = wcstok(text, L" ");
-    wchar_t simvols[] = L"bcdfghjklmnpqrstvwxyz"; // variable contains all consonants in English
-
-    while (word != NULL) {
-        if (wcschr(simvols, towlower(word[0])) != NULL)
-            count++;
-        word = wcstok(NULL, L" ");
-    }
-
-    return count;
-}
-
-void saveResults(const char* filename, int count) {
-    FILE* file = fopen(filename, "wb");
-    if (file != NULL) {
-        fwrite(&count, sizeof(int), 1, file);
-        fclose(file);
-    } else {
-        printf("Failed to open file for writing.\n");
-    }
-}
 
 int main() {
     setlocale(LC_ALL, "");
 
-    wchar_t text[100];
+    wchar_t text[1000];
 
     printf("Do you want to read from a file (0) or enter from console (1)? ");
     int choice;
@@ -38,7 +15,7 @@ int main() {
     getchar(); // Consume the newline character
 
     if (choice == 0) {
-        printf("Enter '0' to read from text file or '1' to read from binary file: ");
+        printf("Enter '0' to read from a text file or '1' to read from a binary file: ");
         int fileChoice;
         scanf("%d", &fileChoice);
         getchar(); // Consume the newline character
@@ -71,8 +48,9 @@ int main() {
         return 1;
     }
 
-    int result = countofwords(text);
-    printf("Count of words: %d\n", result);
+    Normal_Side_Spaces(text);
+    int result = Count_Of_Words(text);
+    printf("Count of words starting with a consonant: %d\n", result);
 
     printf("Do you want to save the result to a file (0) or display only (1)? ");
     int outputChoice;
@@ -81,13 +59,13 @@ int main() {
     if (outputChoice == 0) {
         FILE* textOutput = fopen("output_text.txt", "w");
         if (textOutput != NULL) {
-            fwprintf(textOutput, L"Count of words: %d\n", result);
+            fwprintf(textOutput, L"Count of words starting with a consonant: %d\n", result);
             fclose(textOutput);
         } else {
             printf("Failed to open text output file.\n");
         }
 
-        saveResults("output_binary.bin", result);
+        Save_Results("output_binary.bin", result);
     }
 
     return 0;

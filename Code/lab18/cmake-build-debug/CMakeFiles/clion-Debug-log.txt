@@ -1,1 +1,0 @@
-CMakeLists.txt not found in C:\Users\short\OneDrive\Документы\GitHub\C\Code\lab18 Select CMakeLists.txt
