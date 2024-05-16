@@ -83,7 +83,7 @@ int main() {
                         last_names[rand() % 10],
                         first_names[rand() % 10],
                         genders[rand() % 2],
-                        rand() % 5 + 1, // Генерация случайной группы от 1 до 5
+                        rand() % 5 + 1, 
                         rand() % 7 + 15,
                         rand() % 4 + 2,
                         rand() % 4 + 2,
