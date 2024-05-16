@@ -1,5 +1,6 @@
 #include "three.h"
 
+
 const char last_names[10][20] = {
         "Natasha", "Masha", "Ilya", "Artem", "Sasha",
         "Valya", "Vasya", "Kuzya", "Buzya", "Misha"

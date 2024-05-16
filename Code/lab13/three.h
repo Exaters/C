@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <time.h>
 
+
 extern const char last_names[10][20];
 extern const char first_names[10][20];
 extern const char genders[2][10];

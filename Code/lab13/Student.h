@@ -1,3 +1,6 @@
+#include <stdlib.h>
+
+
 struct Student* student_init(
         const char last_name[20],
         const char first_name[30],
