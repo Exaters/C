@@ -1,48 +1,16 @@
 #include "three.c"
+#include "errno.h"
 #include "Student.c"
-
-
 #define lol_0 return 0; // macro
 
-void load_students_from_binary_file(const char* filename, struct List* list) {
-    FILE* file = fopen(filename, "rb");
-    if (file == NULL) {
-        printf("Error opening file for reading\n");
-        exit(errno);
-    }
-
-    struct Student student;
-    while (fread(&student, sizeof(struct Student), 1, file) == 1) {
-        struct Student* new_student = student_init(student.last_name, student.first_name, student.gender,
-                                                   student.group, student.age, student.math_mark,
-                                                   student.physics_mark, student.chemistry_mark);
-        if (new_student != NULL) {
-            list->append(list, new_student);
-        }
-    }
-
-    fclose(file);
-}
-
-void save_students_to_binary_file(const char* filename, const struct List* list) {
-    FILE* file = fopen(filename, "wb");
-    if (file == NULL) {
-        printf("Error opening file for writing\n");
-        exit(errno);
-    }
-
-    struct StudentNode* current = list->head;
-    while (current != NULL) {
-        fwrite(current->data, sizeof(struct Student), 1, file);
-        current = current->next;
-    }
-
-    fclose(file);
-}
 
 int main() {
     struct List* my_new_list = list_init();
     srand(time(NULL));
+
+    errno = 0;
+    char *my_error = strerror(1);
+    printf("%d. %s\n",my_error);
 
     for (int i = 0; i < 10; i++) {
         my_new_list->append(

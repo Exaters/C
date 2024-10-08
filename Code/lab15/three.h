@@ -12,17 +12,6 @@ extern const char genders[2][10];
 #define MARCO "This is a MARCO" // why not?
 #define RAND_RANGE(min, max) ((min) + rand() % ((max) - (min) + 1))
 
-struct Student {
-    char last_name[20];
-    char first_name[30];
-    char gender[10];
-    int group;
-    int age;
-    int math_mark;
-    int physics_mark;
-    int chemistry_mark;
-};
-
 struct StudentNode {
     struct Student* data;
     struct StudentNode* next;

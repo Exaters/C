@@ -22,7 +22,7 @@ void load_students_from_file(const char* filename, struct List* list) {
 
     while (fscanf(file, "%s %s %s %d %d %d %d %d",
                   last_name, first_name, gender, &group, &age,
-                  &math_mark, &physics_mark, &chemistry_mark) != EOF) {
+                  &math_mark, &physics_mark, &chemistry_mark)) {
         struct Student* student = student_init(last_name, first_name, gender,
                                                group, age, math_mark,
                                                physics_mark, chemistry_mark);

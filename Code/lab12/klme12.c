@@ -55,8 +55,8 @@ struct StudentNode {
 struct StudentTree {
     struct StudentNode* root;
     void* (*insert)(void* tree, void* student);
-    void* (*print)(const void* tree);
-    void* (*print_male_students_in_group)(const void* tree, void* group);
+    void* (*print)(void* tree);
+    void* (*print_male_students_in_group)(void* tree, void* group);
     void* (*free_tree)(void* tree);
 };
 

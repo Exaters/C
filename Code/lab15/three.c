@@ -1,19 +1,7 @@
 #include "three.h"
 
 
-const char last_names[10][20] = {
-        "Natasha", "Masha", "Ilya", "Artem", "Sasha",
-        "Valya", "Vasya", "Kuzya", "Buzya", "Misha"
-};
 
-const char first_names[10][20] = {
-        "Ivanov", "Petrov", "Sidorov", "Smirnov", "Popov",
-        "Kuznetsov", "Vasiliev", "Mikhailov", "Novikov", "Fedorov"
-};
-
-const char genders[2][10] = {
-        "Male", "Female"
-};
 
 struct List* list_init() {
     struct List* result = malloc(sizeof(struct List));

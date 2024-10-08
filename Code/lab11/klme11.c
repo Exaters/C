@@ -182,7 +182,7 @@ void print_male_students_in_group(const struct StudentTree* tree, int group) {
 
 void print_male_students_in_group_node(const struct StudentNode* node, int group, bool* found) {
     if (node != NULL) {
-        print_male_students_in_group_node(node->left, group, found);
+        print_male_students_in_group_node(node->right, group, found);
         if (node->data->group == group && strcmp(node->data->gender, "Male") == 0) {
             printf("last name: %s\n", node->data->last_name);
             printf("first name: %s\n", node->data->first_name);
@@ -194,7 +194,7 @@ void print_male_students_in_group_node(const struct StudentNode* node, int group
             printf("chemistry mark: %d\n\n", node->data->chemistry_mark);
             *found = true;
         }
-        print_male_students_in_group_node(node->right, group, found);
+        print_male_students_in_group_node(node->left, group, found);
     }
 }
 

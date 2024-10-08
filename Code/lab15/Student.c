@@ -1,8 +1,23 @@
 #include "Student.h"
 
 
+const char last_names[10][20] = {
+        "Natasha", "Masha", "Ilya", "Artem", "Sasha",
+        "Valya", "Vasya", "Kuzya", "Buzya", "Misha"
+};
+
+const char first_names[10][20] = {
+        "Ivanov", "Petrov", "Sidorov", "Smirnov", "Popov",
+        "Kuznetsov", "Vasiliev", "Mikhailov", "Novikov", "Fedorov"
+};
+
+const char genders[2][10] = {
+        "Male", "Female"
+};
+
+
 struct Student* student_init(
-        const char last_name[20],
+        const char* last_name,
         const char first_name[30],
         const char *gender,
         int group,
@@ -22,3 +37,4 @@ struct Student* student_init(
     student->chemistry_mark = chemistry_mark;
     return student;
 }
+
